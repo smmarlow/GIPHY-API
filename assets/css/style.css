@@ -1,0 +1,45 @@
+#emptyPlacement {
+    width: 100%;
+    height:60px;
+}
+
+.card {
+    width: 25%;
+}
+
+.buttonLocation {
+    width: 100%;
+}
+
+.leftCol {
+    position: fixed;
+}
+
+#clearButton {
+    width: 100%;
+}
+
+#body {
+    padding-top: 10px;
+}
+
+#clearButton {
+    padding-bottom: 10px;
+}
+
+.buttonLocation {
+    padding-top: 10px;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+#bodyRight {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+#clearButtonGif {
+    width: 100%;
+}
