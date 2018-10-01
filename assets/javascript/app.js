@@ -61,11 +61,12 @@ $(document).on('click', '.buttonLocation', function() {
             console.log(gifTitle);
             var gifRating = results[i].rating;
             console.log(gifRating);
-            var gifImage = results[i].images.fixed_height.url;
+            var gifImage = results[i].images.original_still.url;
             console.log(gifImage);
+            var gifMoving = results[i].images.original.url;
             
-            var newCard = $('<div class="card" style="width: 100%;">');
-            var cardImage = $('<img class="card-img-top" src="' + gifImage + '" alt="Card image cap">');
+            var newCard = $('<div class="card" style="width: 100%">');
+            var cardImage = $('<img class="card-img-top gify" data-state="still" data-still="' + gifImage + '" data-moving="' + gifMoving + '" src="' + gifImage + '" alt="Card image cap">');
             var cardBody = $('<div class="card-body">');
             var cardTitle = $('<h5 class="card-title">' + gifTitle + '</h5>');
             var cardText = $('<p class="card-text">Rating: ' + gifRating + '</p>')
@@ -79,5 +80,20 @@ $(document).on('click', '.buttonLocation', function() {
             $('#bodyRight').prepend(newCard);
         };
     });
+});
+
+$(document).on('click', '.gify', function() {
+    console.log('clicked');
+    var moving = $(this).attr('data-moving');
+    var still = $(this).attr('data-still');
+    var state = $(this).attr('data-state')
+    if (state === 'still') {
+        $(this).attr('src', moving);
+        $(this).attr('data-state', 'moving');
+    }
+    if (state === 'moving') {
+        $(this).attr('src', still);
+        $(this).attr('data-state', 'still');
+    }
 });
 
